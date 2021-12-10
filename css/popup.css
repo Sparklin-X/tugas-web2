@@ -1,0 +1,83 @@
+
+* {
+  box-sizing: border-box;
+}
+    
+    .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.7);
+    backdrop-filter: blur(5px);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+ 
+  .popup {
+    top: -180px;
+    margin: 70px auto;
+    padding: 18px;
+    background: #18172b;
+    border-radius: 10px;
+    position: relative;
+    width: 30%;
+    transition: transform 400ms ease;
+    animation: drop 1.5s ease forwards;
+  }
+
+  .popup .close {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    transition: all 180ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 2560px){
+    .popup{
+      width: 20%;
+    }
+  }
+  @media screen and (max-width: 1240px){
+    .popup{
+      width: 30%;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    .popup{
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 325px){
+    .popup{
+      width: 80%;
+    }
+  }
+
+@keyframes drop 
+{
+    0% {opacity: 0;}
+    75% { transform: translateY(350px)}
+    100% {display: block;transform: translateY(250px); opacity: 1}
+}
+

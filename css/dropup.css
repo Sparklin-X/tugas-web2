@@ -1,0 +1,73 @@
+.snack-wrap {
+    display:block;
+    position:fixed;
+    bottom:0px;
+    left:10px;
+    padding:0px;
+  }
+  
+  .snackbar { 
+    display:block;
+    background:#222;
+    border:#f2f2f2;
+    padding:20px 80px 20px 80px;
+    border-radius: 10px;
+    color:#fff;
+    font-family:Arial;
+    position:relative;
+    left:0px;
+    bottom:-250px;
+    transition: bottom 0.5s ease-in-out;
+    z-index:8;
+  } 
+  .snackclose{
+    display: block;
+    bottom:-250px;
+    border:0;
+  }
+  .snackclose {
+    display:none;
+    z-index:9;
+  }
+  .ex {
+    position : absolute;
+    z-index:10;
+    display:inline-block;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 5px;
+    color:rgba(255,255,255,0.8);
+    background-color: #222;
+    cursor:pointer;
+  }
+  .animated {
+    animation-name: snackbar-show;
+    animation-duration: 3.5s;
+    animation-direction: forwards;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .snackclose:checked~.snackbar {
+    animation-name: snackbar-hide;
+    animation-delay:0s;
+  }
+  @keyframes snackbar-show {
+     0%{ bottom:-250px; }
+    90%, 95% {bottom:15px; }
+    92.5%, 100% {bottom:10px; }
+  } 
+  @keyframes snackbar-hide {
+     0%, 7.5% {bottom:10px; }
+    5%,10% {bottom:15px; }
+    100% {bottom:-250px; }
+  }
+
+@media screen and (max-width: 425px) {
+    .snack-wrap {
+        left: 8px;
+    }
+    .snackbar {
+        padding: 5px;
+    }
+    
+}
